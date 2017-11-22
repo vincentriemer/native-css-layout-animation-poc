@@ -111,7 +111,13 @@ function LayoutAnimation() {
     }
 
     const startingKeyframe = getStartingKeyframe(prevRect, nextRect);
-    const existingTransform = target.style.transform;
+    let existingTransform = window
+      .getComputedStyle(target)
+      .getPropertyValue("transform");
+
+    if (existingTransform === "none") {
+      existingTransform = "translateX(0)";
+    }
 
     const animationKeyframes = [
       {
