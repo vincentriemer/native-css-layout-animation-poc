@@ -135,7 +135,6 @@ function LayoutAnimation() {
       delay: pendingAnimationConfig.delay || 0,
       easing: pendingAnimationConfig.type || "linear",
       fill: "backwards",
-      composite: "add",
     };
 
     return target.animate(animationKeyframes, animationConfig).finished;
